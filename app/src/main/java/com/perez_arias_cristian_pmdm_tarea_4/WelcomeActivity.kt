@@ -1,6 +1,8 @@
 package com.perez_arias_cristian_pmdm_tarea_4
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -11,51 +13,56 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class WelcomeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_welcome)
 
-        // Establecer los márgenes para los sistemas de barras (estatus y navegación)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // Obtener SharedPreferences
+        val sharedPreferences: SharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
 
-        // Obtener el botón "Comenzar" y la imagen
-        val btnStart = findViewById<Button>(R.id.btn_start_welcome)
+        // Referencias a los elementos de la UI
+        val btnStartTutorial = findViewById<Button>(R.id.btn_start_tutorial)
+        val btnSkipTutorial = findViewById<Button>(R.id.btn_scape_tutorial)
         val imgWelcome = findViewById<ImageView>(R.id.imgWelcome)
 
-        // Cargar la animación fadeIn para el botón
+        // Configurar animaciones
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        btnStart.startAnimation(fadeIn)
-
-        // Cargar la animación fadeOut para la imagen
         val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        btnStartTutorial.startAnimation(fadeIn)
 
-        // Acción al presionar el botón
-        btnStart.setOnClickListener {
-            // Iniciar la animación fadeOut en la imagen
-            imgWelcome.startAnimation(fadeOut)
-
-            // Esperar a que termine la animación y luego iniciar MainActivity
-            fadeOut.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
-                override fun onAnimationStart(animation: android.view.animation.Animation?) {
-                    // Puedes agregar algún comportamiento aquí cuando comience la animación
-                }
-
-                override fun onAnimationRepeat(animation: android.view.animation.Animation?) {
-                    // Si la animación se repite, puedes agregar algo aquí
-                }
-
-                override fun onAnimationEnd(animation: android.view.animation.Animation?) {
-                    // Iniciar MainActivity después de que termine la animación
-                    val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()  // Cerrar la actividad WelcomeActivity
-                }
-            })
+        // Botón para iniciar el tutorial (guarda false en SharedPreferences)
+        btnStartTutorial.setOnClickListener {
+            saveGuidePreference(false)  // Guardar que el tutorial debe mostrarse
+            startMainActivity(imgWelcome, fadeOut)  // Iniciar MainActivity con animación
         }
+
+        // Botón para saltar el tutorial (guarda true en SharedPreferences)
+        btnSkipTutorial.setOnClickListener {
+            saveGuidePreference(true)  // Guardar que el tutorial NO debe mostrarse
+            startMainActivity(imgWelcome, fadeOut)  // Iniciar MainActivity con animación
+        }
+    }
+
+    private fun saveGuidePreference(isGuideShown: Boolean) {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("guide_shown", isGuideShown)
+        editor.apply()
+    }
+
+    private fun startMainActivity(imgWelcome: ImageView, fadeOut: android.view.animation.Animation) {
+        imgWelcome.startAnimation(fadeOut)
+
+        fadeOut.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+            override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+            override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+            override fun onAnimationEnd(animation: android.view.animation.Animation?) {
+                val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        })
     }
 }

@@ -61,9 +61,7 @@ class PersonajesFragment : Fragment(R.layout.fragment_personajes) {
         bocadillo.setOnClickListener {
             bocadillo.visibility = View.GONE
             // Guardar el estado en SharedPreferences para que no se muestre de nuevo
-            val editor = sharedPreferences.edit()
-            editor.putBoolean("guide_shown", true)
-            editor.apply()
+
 
             // Cambiar al fragmento en la posición 1 (Mundos)
             val viewPager2 = requireActivity().findViewById<ViewPager2>(R.id.view_pager)

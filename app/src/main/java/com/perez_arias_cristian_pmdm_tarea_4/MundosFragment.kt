@@ -82,9 +82,7 @@ class MundosFragment : Fragment(R.layout.fragment_mundos) {
         bocadillo.setOnClickListener {
             // Ocultar el bocadillo y guardar el estado en SharedPreferences
             bocadillo.visibility = View.GONE
-            val editor = sharedPreferences.edit()
-            editor.putBoolean("guide_shown", true)
-            editor.apply()
+
 
             // Cambiar al fragmento "Mundos"
             val viewPager2 = requireActivity().findViewById<ViewPager2>(R.id.view_pager)
