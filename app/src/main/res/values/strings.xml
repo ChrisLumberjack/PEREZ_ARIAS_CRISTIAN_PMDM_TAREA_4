@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PEREZ_ARIAS_CRISTIAN_PMDM_TAREA_4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="artisans">El primer mundo de Spyro the Dragon es el hogar de los dragones artistas, escultores y músicos. Es un lugar pacífico y colorido, lleno de colinas verdes, cascadas y castillos de piedra. Aquí, Spyro aprende lo básico del juego mientras explora áreas como Stone Hill, Town Square y Dark Hollow.</string>
+    <string name="peace_keepers">Un mundo árido y desértico donde residen los dragones guerreros. Este reino está diseñado como un campamento militar con cañones y fuertes. Los enemigos aquí son más agresivos, pero también tienen momentos cómicos, como los gnorcs escondiéndose en tiendas de campaña. Spyro puede explorar niveles como Dry Canyon, Cliff Town y Ice Cavern.</string>
+    <string name="magic_crafters">Un reino místico habitado por dragones magos que controlan el flujo de la magia en el mundo. Sus paisajes montañosos, torres encantadas y caminos cubiertos de nieve le dan un aire místico. Aquí, Spyro se enfrenta a enemigos más desafiantes, como druidas que manipulan el entorno. Destacan niveles como Alpine Ridge, High Caves y Wizard Peak.</string>
+    <string name="beast_makers">Un pantano oscuro y misterioso donde los dragones han experimentado con la creación de criaturas. Este mundo es más sombrío y peligroso, con suelos electrificados y enemigos como jabalíes salvajes y druidas malévolos. Destacan niveles como Terrace Village, Misty Bog y Tree Tops, famoso por sus difíciles saltos con supercarga.</string>
+    <string name="dream_weavers">Un mundo surrealista donde los dragones controlan los sueños y las ilusiones. Su diseño es extravagante, con plataformas flotantes, castillos dorados y enemigos que cambian de tamaño. Este reino introduce mecánicas únicas como los cañones que pueden alterar a los enemigos. Destacan niveles como Haunted Towers, Dark Passage y Lofty Castle.</string>
+    <string name="spyro">Un joven y valiente dragón morado con actitud rebelde. Su misión es salvar a los dragones cristalizados y derrotar a los villanos que amenazan su mundo</string>
+    <string name="hunter">Un guepardo atlético y despreocupado que ayuda a Spyro con desafíos y minijuegos. A veces es torpe, pero siempre leal.</string>
+    <string name="elora">Una fauno inteligente y estratégica. Es la voz de la razón del grupo y guía a Spyro en su aventura contra Ripto.</string>
+    <string name="ripto">Un pequeño pero poderoso hechicero con un gran ego y odio hacia los dragones. Quiere gobernar Avalar con la ayuda de sus secuaces.</string>
+
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2C3FF"
+    tools:context=".MundosFragment">
+
+    <!-- RecyclerView para mostrar los mundos (en el fondo) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMundos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"/>
+
+    <!-- Texto con animación (en la parte superior del RecyclerView) -->
+    <TextView
+        android:id="@+id/text_mundos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aquí verás los nuevos mundos de Spyro the dragon. Haz click aquí"
+        android:background="@drawable/bocadillo_shape"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:visibility="invisible"
+        android:layout_gravity="center"/>
+
+    <!-- GIF debajo de text_mundos_2 (también encima del RecyclerView) -->
+    <ImageView
+        android:id="@+id/gif_spyro"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <!-- Bocadillo de texto, también sobre el RecyclerView -->
+    <TextView
+        android:id="@+id/bocadillo_info"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bocadillo_shape"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Aquí podrás explorar a todos los mundos de Spyro. \n\n Haz click para seguir"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"/>
+
+</FrameLayout>
